@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<go-plugin id="xunit.converter.task.plugin" version="1">
+    <about>
+        <name>Github Tasks</name>
+        <version>0.1</version>
+        <target-go-version>14.1.0</target-go-version>
+        <description>
+            Thoughtworks Go plugin to access the Github API
+        </description>
+        <vendor>
+            <name>Omigos</name>
+            <url>www.omigos.de</url>
+        </vendor>
+    </about>
+</go-plugin>
