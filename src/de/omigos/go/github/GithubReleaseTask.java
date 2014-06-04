@@ -32,7 +32,7 @@ public class GithubReleaseTask implements Task {
         TaskView taskView = new TaskView() {
             @Override
             public String displayValue() {
-                return "XUnit Converter";
+                return "Github Release";
             }
 
             @Override
