@@ -13,12 +13,14 @@ import org.apache.commons.io.IOUtils;
 public class GithubReleaseTask implements Task {
     public static final String INPUT_OAUTH_TOKEN = "OAuthToken";
     public static final String INPUT_REPO = "Repo";
+    public static final String INPUT_PRERELEASE = "Prerelease";
 
     @Override
     public TaskConfig config() {
         TaskConfig config = new TaskConfig();
         config.addProperty(INPUT_OAUTH_TOKEN);
         config.addProperty(INPUT_REPO);
+        config.addProperty(INPUT_PRERELEASE);
         return config;
     }
 
@@ -38,7 +40,7 @@ public class GithubReleaseTask implements Task {
             @Override
             public String template() {
                 try {
-                    return IOUtils.toString(getClass().getResourceAsStream("/views/task.template.html"), "UTF-8");
+                    return IOUtils.toString(getClass().getResourceAsStream("/views/release.template.html"), "UTF-8");
                 } catch (Exception e) {
                     return "Failed to find template: " + e.getMessage();
                 }
@@ -51,10 +53,13 @@ public class GithubReleaseTask implements Task {
     public ValidationResult validate(TaskConfig configuration) {
         ValidationResult validationResult = new ValidationResult();
         if (configuration.getValue(INPUT_OAUTH_TOKEN) == null) {
-            validationResult.addError(new ValidationError(INPUT_OAUTH_TOKEN, "Converter Type cannot be empty"));
+            validationResult.addError(new ValidationError(INPUT_OAUTH_TOKEN, "OAuth Token cannot be empty"));
         }
         if (configuration.getValue(INPUT_REPO) == null) {
-            validationResult.addError(new ValidationError(INPUT_REPO, "Output Directory cannot be empty"));
+            validationResult.addError(new ValidationError(INPUT_REPO, "Repo cannot be empty"));
+        }
+        if (configuration.getValue(INPUT_PRERELEASE) == null) {
+            validationResult.addError(new ValidationError(INPUT_PRERELEASE, "Prerelease cannot be empty"));
         }
 
         return validationResult;
