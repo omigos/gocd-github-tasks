@@ -15,6 +15,7 @@ The plugin will provide a "Github Release" task that will take an github oauth t
 roadmap
 =======
 
+* attach artifacts to a release (probably by filename)
 * update commit status (the small icons besides a commit in a ticket, like travis-ci does)
 * update releases (change name, make pre-release to release, publish draft, add comment like "deployed to...", etc.)
 * maybe some integration with the github deployment status api
