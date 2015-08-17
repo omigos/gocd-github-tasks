@@ -1,6 +1,8 @@
 gocd-github-tasks
 =================
 
+![GitHub Logo](https://travis-ci.org/omigos/gocd-github-tasks.svg)
+
 This is a plugin for Thoughtworks GO to provide easy integration with github.
 
 status
